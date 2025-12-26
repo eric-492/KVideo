@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useDesktopPlayerState } from './hooks/useDesktopPlayerState';
 import { useDesktopPlayerLogic } from './hooks/useDesktopPlayerLogic';
 import { useHlsPlayer } from './hooks/useHlsPlayer';
@@ -52,6 +53,11 @@ export function DesktopVideoPlayer({
     setShowControls,
     setIsLoading,
   } = state;
+
+  // Reset loading state and show spinner when source changes
+  React.useEffect(() => {
+    setIsLoading(true);
+  }, [src, setIsLoading]);
 
   const logic = useDesktopPlayerLogic({
     src,
@@ -120,12 +126,17 @@ export function DesktopVideoPlayer({
         onMoreMenuMouseEnter={() => {
           if (refs.moreMenuTimeoutRef.current) {
             clearTimeout(refs.moreMenuTimeoutRef.current);
+            refs.moreMenuTimeoutRef.current = null;
           }
         }}
         onMoreMenuMouseLeave={() => {
+          if (refs.moreMenuTimeoutRef.current) {
+            clearTimeout(refs.moreMenuTimeoutRef.current);
+          }
           refs.moreMenuTimeoutRef.current = setTimeout(() => {
             state.setShowMoreMenu(false);
-          }, 300);
+            refs.moreMenuTimeoutRef.current = null;
+          }, 800); // Increased timeout for better stability
         }}
         onCopyLink={logic.handleCopyLink}
         // Speed Menu Props

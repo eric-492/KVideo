@@ -123,7 +123,7 @@ export function DesktopOverlay({
 
             {/* Previous Button (Method: Skip Backward) */}
             <div
-                className={`absolute left-0 top-0 bottom-0 flex items-center justify-center p-8 transition-opacity duration-300 z-10 ${showNavButtons ? 'opacity-100' : 'opacity-0'
+                className={`absolute left-0 top-0 bottom-0 flex items-center justify-center p-4 md:p-8 transition-opacity duration-300 z-10 ${showNavButtons ? 'opacity-100' : 'opacity-0'
                     }`}
                 style={{ pointerEvents: showNavButtons ? 'auto' : 'none' }}
             >
@@ -132,16 +132,16 @@ export function DesktopOverlay({
                         e.stopPropagation();
                         onSkipBackward();
                     }}
-                    className="group flex items-center justify-center w-16 h-16 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-sm transition-all duration-300 hover:scale-110 active:scale-95"
+                    className="group flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-sm transition-all duration-300 hover:scale-110 active:scale-95"
                     aria-label="Skip Backward 10s"
                 >
-                    <Icons.SkipBack size={32} className="text-white/80 group-hover:text-white" />
+                    <Icons.SkipBack className="w-6 h-6 md:w-8 md:h-8 text-white/80 group-hover:text-white" />
                 </button>
             </div>
 
             {/* Next Button (Method: Skip Forward) */}
             <div
-                className={`absolute right-0 top-0 bottom-0 flex items-center justify-center p-8 transition-opacity duration-300 z-10 ${showNavButtons ? 'opacity-100' : 'opacity-0'
+                className={`absolute right-0 top-0 bottom-0 flex items-center justify-center p-4 md:p-8 transition-opacity duration-300 z-10 ${showNavButtons ? 'opacity-100' : 'opacity-0'
                     }`}
                 style={{ pointerEvents: showNavButtons ? 'auto' : 'none' }}
             >
@@ -150,10 +150,10 @@ export function DesktopOverlay({
                         e.stopPropagation();
                         onSkipForward();
                     }}
-                    className="group flex items-center justify-center w-16 h-16 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-sm transition-all duration-300 hover:scale-110 active:scale-95"
+                    className="group flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/40 hover:bg-black/60 backdrop-blur-sm transition-all duration-300 hover:scale-110 active:scale-95"
                     aria-label="Skip Forward 10s"
                 >
-                    <Icons.SkipForward size={32} className="text-white/80 group-hover:text-white" />
+                    <Icons.SkipForward className="w-6 h-6 md:w-8 md:h-8 text-white/80 group-hover:text-white" />
                 </button>
             </div>
 
@@ -162,10 +162,10 @@ export function DesktopOverlay({
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
                     <button
                         onClick={onTogglePlay}
-                        className="pointer-events-auto w-20 h-20 rounded-full bg-[var(--glass-bg)] backdrop-blur-[25px] saturate-[180%] border border-[var(--glass-border)] flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-[var(--accent-color)] shadow-[var(--shadow-md)] will-change-transform cursor-pointer"
+                        className="pointer-events-auto w-16 h-16 md:w-20 md:h-20 rounded-full bg-[var(--glass-bg)] backdrop-blur-[25px] saturate-[180%] border border-[var(--glass-border)] flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-[var(--accent-color)] shadow-[var(--shadow-md)] will-change-transform cursor-pointer"
                         aria-label="Play"
                     >
-                        <Icons.Play size={32} className="text-white ml-1" />
+                        <Icons.Play className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" />
                     </button>
                 </div>
             )}
